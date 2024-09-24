@@ -1,5 +1,17 @@
 program ures
 begin
     int i = 054;
+    int i = 54;
+    int s = -54; 
+    /* 
+    abc 
+    5 */
+    int s = 54;
+    23:59
+    12:56
+    00:00
+    // int j = +54;
+    int j = 54;
+    int j = 12.54;
     skip;
 end
