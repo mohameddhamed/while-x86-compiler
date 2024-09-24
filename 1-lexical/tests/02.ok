@@ -1,0 +1,5 @@
+program ures
+begin
+    int i = 054;
+    skip;
+end
