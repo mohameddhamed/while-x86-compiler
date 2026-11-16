@@ -13,8 +13,7 @@ int main( int argc, char* argv[] )
     ifstream in;
     input_handler( in, argc, argv );
     Parser pars( in );
-    pars.parse();
-    return 0;
+    return pars.parse();
 }
 
 void input_handler( ifstream& in, int argc, char* argv[] )

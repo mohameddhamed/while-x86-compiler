@@ -17,7 +17,7 @@ jobs:
       - name: Install Toolchain & Dependencies
         run: |
           sudo apt-get update
-          sudo apt-get install -y flex bisonc++ nasm gcc-multilib g++-multilib make
+          sudo apt-get install -y flex libfl-dev bisonc++ nasm gcc-multilib g++-multilib make
 
       - name: Compile Compiler
         run: make all

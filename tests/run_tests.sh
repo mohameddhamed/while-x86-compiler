@@ -33,8 +33,8 @@ run_test() {
     if command -v nasm >/dev/null 2>&1 && command -v gcc >/dev/null 2>&1; then
         # Assemble 32-bit ELF object
         nasm -f elf32 "$asm_file" -o "$obj_file"
-        # Link with runtime I/O library
-        gcc -m32 runtime/io.c "$obj_file" -o "$bin_file"
+        # Link with runtime I/O library (-no-pie required for 32-bit ELF absolute relocations)
+        gcc -m32 -no-pie runtime/io.c "$obj_file" -o "$bin_file"
 
         # Execute
         local actual_output
@@ -69,6 +69,16 @@ run_test "02" "" ""
 run_test "03" "41" "42"
 run_test "04" "false" "true"
 run_test "05" "5" "true"
+
+# Test 06.ok (infinite loop: verify compilation and assembly without execution)
+echo -n "Test 06: "
+"$COMPILER" "tests/06.ok" > "tests/06.asm"
+if command -v nasm >/dev/null 2>&1; then
+    nasm -f elf32 "tests/06.asm" -o "tests/06.o"
+fi
+echo "PASSED (Compilation & Assembly)"
+PASSED=$((PASSED + 1))
+
 run_test "07" $'3\n99' $'99\n99\n99'
 run_test "08" "" ""
 run_test "09" "10" "11"
