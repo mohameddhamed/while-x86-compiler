@@ -1,5 +1,0 @@
-program time_tester
-  time a;
-begin
-  hour(a);
-end

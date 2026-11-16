@@ -1,5 +1,0 @@
-program oszto
-  integer a;
-begin
-  duplicate duplicate;
-end

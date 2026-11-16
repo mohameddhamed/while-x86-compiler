@@ -1,1 +1,10 @@
-bison*
+.DS_Store
+bin/
+while
+build/
+*.o
+*.bin
+*.out
+src/lex.yy.cc
+src/parse.cc
+src/Parserbase.h

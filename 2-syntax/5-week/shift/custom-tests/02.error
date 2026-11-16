@@ -1,7 +1,0 @@
-program try
-  integer a;
-begin
-  read(a);
-  a := a >> ;
-  write(a);
-end

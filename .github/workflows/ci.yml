@@ -1,0 +1,26 @@
+name: CI
+
+on:
+  push:
+    branches: [ main, master ]
+  pull_request:
+    branches: [ main, master ]
+
+jobs:
+  build-and-test:
+    name: Build & Test on Ubuntu Linux (x86)
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout Code
+        uses: actions/checkout@v4
+
+      - name: Install Toolchain & Dependencies
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y flex bisonc++ nasm gcc-multilib g++-multilib make
+
+      - name: Compile Compiler
+        run: make all
+
+      - name: Run Test Suite (Compile, Assemble, Link & Execute)
+        run: make test

@@ -1,5 +1,0 @@
-program incdec
-    integer a;
-begin
-    a++++;
-end

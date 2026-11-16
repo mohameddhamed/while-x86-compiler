@@ -1,6 +1,0 @@
-program oszto
-  integer a;
-begin
-  duplicate read(a);
-  write(a);
-end

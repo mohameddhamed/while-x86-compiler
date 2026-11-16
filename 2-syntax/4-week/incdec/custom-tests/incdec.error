@@ -1,4 +1,0 @@
-program incdec
-begin
-    1++;
-end

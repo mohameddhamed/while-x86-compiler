@@ -1,9 +1,0 @@
-program forloop
-    integer x;
-    integer i;
-begin
-    read(x);
-    for (i := 0; i < x; i := i+1) {
-        write(i);
-    }
-end
