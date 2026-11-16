@@ -3,6 +3,10 @@
 #ifndef Parser_h_included
 #define Parser_h_included
 
+// Compatibility macros for bisonc++ 6
+#define d_loc__ d_loc_
+#define d_val__ d_val_
+
 // $insert baseclass
 #include "Parserbase.h"
 #include <FlexLexer.h>
@@ -22,6 +26,7 @@ class Parser: public ParserBase
         std::string new_label();
         long long label_index;
 
+        void error();
         void error(char const *msg);    // called on (syntax) errors
         int lex();                      // returns the next token from the
                                         // lexical scanner. 
@@ -30,6 +35,7 @@ class Parser: public ParserBase
     // support functions for parse():
         void executeAction_(int ruleNr);
         void errorRecovery_();
+        int lookup_();
         int lookup_(bool recovery);
         void nextCycle_();
         void nextToken_();

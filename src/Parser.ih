@@ -7,9 +7,14 @@
 #include <cstdlib>
 
 
+inline void Parser::error()
+{
+    error("syntax error");
+}
+
 inline void Parser::error(char const *msg)
 {
-    std::cerr << "line " << d_loc__.first_line << ": " << msg << '\n';
+    std::cerr << "line " << d_loc_.first_line << ": " << msg << '\n';
     exit(1);
 }
 
