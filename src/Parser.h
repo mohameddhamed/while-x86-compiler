@@ -28,12 +28,13 @@ class Parser: public ParserBase
         void print();                   // use, e.g., d_token, d_loc
 
     // support functions for parse():
-        void executeAction(int ruleNr);
-        void errorRecovery();
-        int lookup(bool recovery);
-        void nextToken();
-        void print__();
-        void exceptionHandler__(std::exception const &exc);
+        void executeAction_(int ruleNr);
+        void errorRecovery_();
+        int lookup_(bool recovery);
+        void nextCycle_();
+        void nextToken_();
+        void print_();
+        void exceptionHandler(std::exception const &exc);
 };
 
 

@@ -20,14 +20,7 @@ jobs:
           sudo apt-get install -y flex libfl-dev bisonc++ nasm gcc-multilib g++-multilib make
 
       - name: Compile Compiler
-        run: |
-          (cd src && flex while.l)
-          (cd src && bisonc++ while.y)
-          echo "=== grep catch in parse.cc ==="
-          grep -n -C 5 "catch" src/parse.cc
-          echo "=== grep nextCycle_ in parse.cc ==="
-          grep -n -C 5 "nextCycle_" src/parse.cc
-          make all
+        run: make all
 
       - name: Run Test Suite (Compile, Assemble, Link & Execute)
         run: make test
