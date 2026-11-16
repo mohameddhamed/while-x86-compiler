@@ -66,6 +66,7 @@ program:
         std::cout << "segment .text" << std::endl;
         std::cout << "main:" << std::endl;
         std::cout << *$5 << std::endl;
+        std::cout << "xor eax, eax" << std::endl;
         std::cout << "ret" << std::endl;
         delete $2;
         delete $5;

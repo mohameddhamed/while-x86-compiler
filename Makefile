@@ -25,7 +25,7 @@ $(TARGET): $(SRC_DIR)/lex.yy.cc $(SRC_DIR)/parse.cc $(SRC_DIR)/while.cc
 	cp $(TARGET) ./while
 
 test: $(TARGET)
-	@bash -x tests/run_tests.sh $(TARGET)
+	@bash tests/run_tests.sh $(TARGET)
 
 clean:
 	rm -rf $(BIN_DIR) ./while

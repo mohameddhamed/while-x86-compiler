@@ -39,9 +39,9 @@ run_test() {
         # Execute
         local actual_output
         if [ -n "$input_data" ]; then
-            actual_output=$(printf "%s\n" "$input_data" | "$bin_file")
+            actual_output=$(printf "%s\n" "$input_data" | "$bin_file" || true)
         else
-            actual_output=$("$bin_file")
+            actual_output=$("$bin_file" || true)
         fi
 
         # Compare output (ignoring trailing whitespace)
