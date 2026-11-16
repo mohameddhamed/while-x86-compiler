@@ -21,10 +21,12 @@ jobs:
 
       - name: Compile Compiler
         run: |
-          cd src && flex while.l
-          cd src && bisonc++ while.y
-          echo "=== parse.cc lines 530-610 ==="
-          sed -n '530,610p' src/parse.cc || true
+          (cd src && flex while.l)
+          (cd src && bisonc++ while.y)
+          echo "=== Parserbase.h ==="
+          head -n 60 src/Parserbase.h
+          echo "=== parse.cc lines 530-580 ==="
+          sed -n '530,580p' src/parse.cc
           make all
 
       - name: Run Test Suite (Compile, Assemble, Link & Execute)
