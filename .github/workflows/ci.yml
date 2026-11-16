@@ -23,10 +23,10 @@ jobs:
         run: |
           (cd src && flex while.l)
           (cd src && bisonc++ while.y)
-          echo "=== Parserbase.h ==="
-          head -n 60 src/Parserbase.h
-          echo "=== parse.cc lines 530-580 ==="
-          sed -n '530,580p' src/parse.cc
+          echo "=== grep catch in parse.cc ==="
+          grep -n -C 5 "catch" src/parse.cc
+          echo "=== grep nextCycle_ in parse.cc ==="
+          grep -n -C 5 "nextCycle_" src/parse.cc
           make all
 
       - name: Run Test Suite (Compile, Assemble, Link & Execute)
